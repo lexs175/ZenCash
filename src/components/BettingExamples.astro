@@ -13,6 +13,7 @@ const examples = [
     win: 'España gana el partido.',
     lose: 'Empatan o gana Croacia.',
     result: 'Si España gana 2-1, tu jugada se cumple.',
+    note: 'Con 100 Bs. a cuota 1.80, el retorno posible es 180 Bs.',
   },
   {
     tag: 'Goles',
@@ -25,6 +26,7 @@ const examples = [
     win: 'El partido termina con 3 goles o más.',
     lose: 'El partido termina con 0, 1 o 2 goles.',
     result: 'Si acaba 2-1, hubo 3 goles: gana Más 2.5.',
+    note: 'Con 100 Bs. a cuota 2.02, el retorno posible es 202 Bs.',
   },
   {
     tag: 'Boleto combinado',
@@ -37,6 +39,7 @@ const examples = [
     win: 'España gana y el partido tiene 2 goles o más.',
     lose: 'Si falla una selección, pierde la combinada.',
     result: 'Si España gana 2-1, se cumplen ambas selecciones.',
+    note: 'Con 100 Bs. a cuota 2.65, el retorno posible es 265 Bs.',
   },
 ];
 ---
@@ -99,6 +102,10 @@ const examples = [
               <span>Resultado</span>
               <strong>{item.result}</strong>
             </div>
+            <div class="explain-box return">
+              <span>Retorno</span>
+              <strong>{item.note}</strong>
+            </div>
           </div>
         </article>
       ))}
@@ -124,7 +131,7 @@ const examples = [
 <style>
   .betting-section {
     padding: var(--space-16) 0 var(--space-20);
-    background-color: #031a34;
+    background-color: var(--color-primary);
   }
 
   .betting-head {
@@ -157,23 +164,25 @@ const examples = [
   .example-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-5);
+    gap: var(--space-6);
   }
 
   .example-card {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    background-color: #062a5f;
-    border: 1px solid rgba(0, 194, 255, 0.32);
-    border-radius: var(--radius-lg);
+    background-color: var(--color-bg-white);
+    color: var(--color-text-dark);
+    border: 3px solid #ffffff;
+    border-radius: var(--radius-xl);
     padding: var(--space-5);
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.24);
+    box-shadow: var(--shadow-elevated);
   }
 
   .bet-slip {
-    background-color: rgba(255, 255, 255, 0.12);
-    border-radius: var(--radius-md);
+    background-color: var(--color-primary-light);
+    border: 1.5px solid #c7d9fe;
+    border-radius: var(--radius-lg);
     padding: var(--space-4);
     display: flex;
     flex-direction: column;
@@ -191,12 +200,12 @@ const examples = [
 
   .slip-top {
     padding-bottom: var(--space-2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid #c7d9fe;
   }
 
   .slip-top span,
   .slip-line span {
-    color: var(--color-text-blue-light);
+    color: var(--color-text-muted);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
   }
@@ -212,40 +221,48 @@ const examples = [
   }
 
   .slip-line strong {
-    color: var(--color-text-white);
+    color: var(--color-text-dark);
     font-size: var(--font-size-xs);
   }
 
   .slip-return strong {
-    color: var(--color-accent-yellow);
+    color: var(--color-primary);
   }
 
   .slip-status {
     align-self: flex-end;
-    color: var(--color-text-blue-light);
+    color: var(--color-primary);
     font-size: 11px;
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+  }
+
+  .match-box {
+    background-color: var(--color-bg-light);
+    border: 1.5px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
   }
 
   .match-box span {
-    color: var(--color-text-white);
+    color: var(--color-text-dark);
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-extrabold);
   }
 
   .match-box strong {
-    color: var(--color-text-white);
+    color: var(--color-primary);
     font-size: var(--font-size-2xl);
     line-height: 1;
   }
 
   .example-card h3 {
-    color: var(--color-text-white);
+    color: var(--color-text-dark);
   }
 
   .market-pill {
     background-color: var(--color-primary);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     padding: var(--space-3);
     display: flex;
     flex-direction: column;
@@ -254,14 +271,18 @@ const examples = [
 
   .market-pill span,
   .explain-box span {
-    color: var(--color-text-blue-light);
+    color: var(--color-text-muted);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
   }
 
-  .market-pill strong,
-  .explain-box strong {
+  .market-pill span,
+  .market-pill strong {
     color: var(--color-text-white);
+  }
+
+  .explain-box strong {
+    color: var(--color-text-dark);
     font-size: var(--font-size-sm);
     line-height: var(--leading-snug);
   }
@@ -273,7 +294,7 @@ const examples = [
   }
 
   .explain-box {
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     padding: var(--space-3);
     display: flex;
     flex-direction: column;
@@ -281,15 +302,23 @@ const examples = [
   }
 
   .explain-box.win {
-    background-color: rgba(0, 200, 83, 0.2);
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
   }
 
   .explain-box.lose {
-    background-color: rgba(255, 99, 132, 0.18);
+    background-color: #fff7ed;
+    border: 1px solid #fed7aa;
   }
 
   .explain-box.result {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--color-primary-light);
+    border: 1px solid #c7d9fe;
+  }
+
+  .explain-box.return {
+    background-color: #fffbeb;
+    border: 1px solid #fde68a;
   }
 
   .betting-cta {
