@@ -1,0 +1,271 @@
+---
+// Faq.astro - Preguntas frecuentes estilo nocnoc (lenguaje directo, cero términos rebuscados)
+import Button from './Button.astro';
+import { SITE_CONFIG } from '../config';
+
+const faqs = [
+  {
+    q: '¿Desde cuánto puedo recargar?',
+    a: 'Desde <strong>20 Bs.</strong> o <strong>5 USDT</strong>. Para montos mayores, escríbenos y te damos atención directa.'
+  },
+  {
+    q: '¿El bono del 50% entra directo?',
+    a: 'Sí. En tu primera recarga recibes <strong>50% extra</strong> junto con tu saldo acreditado.'
+  },
+  {
+    q: '¿Mi saldo entra a mi cuenta?',
+    a: 'Sí. Cargamos directo al <strong>ID de 1xBet</strong> que nos envías y confirmamos la operación por chat.'
+  },
+  {
+    q: '¿Aceptan transferencias de mi banco?',
+    a: '<strong>Sí.</strong> Trabajamos con bancos, billeteras locales y USDT. Si no ves tu método, consúltanos.'
+  },
+  {
+    q: '¿También puedo retirar?',
+    a: 'Sí. Procesamos retiros a banco, Yape o billetera disponible en Bolivia.'
+  },
+  {
+    q: '¿Cuánto tarda?',
+    a: 'Normalmente entre <strong>2 y 5 minutos</strong> después de validar el comprobante.'
+  }
+];
+---
+<section class="faq-section block-light" id="faq">
+  <div class="container">
+    <div class="section-title-wrap">
+      <h2>Preguntas Frecuentes</h2>
+      <p class="section-subtext">
+        Respuestas rápidas antes de recargar.
+      </p>
+    </div>
+
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <div class={`faq-card ${index === 0 ? 'is-open' : ''}`}>
+          <button 
+            type="button" 
+            class="faq-trigger" 
+            aria-expanded={index === 0 ? "true" : "false"}
+          >
+            <span>{faq.q}</span>
+            <span class="faq-cross" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-collapse">
+            <div class="faq-collapse-inner">
+              <div class="faq-body">
+                <p set:html={faq.a}></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="faq-footer-help">
+      <span>¿Tienes otra pregunta sobre tu recarga o retiro?</span>
+      <div class="faq-help-buttons">
+        <Button 
+          href="https://wa.me/59176996388?text=Hola%20Zencash,%20tengo%20una%20pregunta%20antes%20de%20recargar" 
+          variant="primary" 
+          on="light"
+          size="sm"
+        >
+          Preguntar por WhatsApp
+        </Button>
+        <Button 
+          href={SITE_CONFIG.telegramDirect} 
+          variant="telegram" 
+          on="light"
+          size="sm"
+        >
+          Preguntar por Telegram
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: var(--space-16) 0 var(--space-20);
+  }
+
+  .section-title-wrap {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto var(--space-10);
+  }
+
+  .section-title-wrap h2 {
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-2);
+  }
+
+  .section-subtext {
+    font-size: var(--font-size-md);
+    color: var(--color-text-body);
+  }
+
+  .faq-list {
+    max-width: 780px;
+    margin: 0 auto var(--space-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .faq-card {
+    background-color: var(--color-bg-white);
+    border: 1.5px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .faq-card.is-open {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .faq-trigger {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: var(--space-4) var(--space-5);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dark);
+    text-align: left;
+    font-family: inherit;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color var(--transition-fast);
+  }
+
+  .faq-trigger:hover {
+    color: var(--color-primary);
+  }
+
+  .faq-card.is-open .faq-trigger {
+    color: var(--color-primary);
+  }
+
+  .faq-cross {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-black);
+    color: var(--color-primary);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .faq-card.is-open .faq-cross {
+    transform: rotate(45deg);
+    color: var(--color-text-dark);
+  }
+
+  /* Animación suave de acordeón usando CSS Grid (0fr -> 1fr) */
+  .faq-collapse {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-card.is-open .faq-collapse {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-collapse-inner {
+    overflow: hidden;
+  }
+
+  .faq-body {
+    padding: 0 var(--space-5) var(--space-4);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-body);
+    line-height: var(--leading-normal);
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: var(--space-3);
+  }
+
+  .faq-body code {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-family: monospace;
+    font-weight: var(--font-weight-bold);
+  }
+
+  .faq-body strong {
+    color: var(--color-text-dark);
+  }
+
+  .faq-footer-help {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-body);
+  }
+
+  .faq-help-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  @media (max-width: 640px) {
+    .faq-section {
+      padding: var(--space-10) 0 var(--space-12);
+    }
+
+    .faq-help-buttons {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-2);
+      width: auto;
+    }
+  }
+</style>
+
+<script>
+  const faqCards = document.querySelectorAll<HTMLElement>('.faq-card');
+
+  faqCards.forEach((card) => {
+    const trigger = card.querySelector<HTMLButtonElement>('.faq-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isAlreadyOpen = card.classList.contains('is-open');
+
+      // Cerrar todas las demás tarjetas
+      faqCards.forEach((otherCard) => {
+        otherCard.classList.remove('is-open');
+        const otherTrigger = otherCard.querySelector<HTMLButtonElement>('.faq-trigger');
+        if (otherTrigger) {
+          otherTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Si no estaba abierta, abrir únicamente la tarjeta seleccionada
+      if (!isAlreadyOpen) {
+        card.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

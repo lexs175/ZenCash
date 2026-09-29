@@ -1,0 +1,343 @@
+---
+import Button from './Button.astro';
+
+const examples = [
+  {
+    tag: 'Mercado popular',
+    title: '1X2',
+    subtitle: 'España vs Croacia',
+    score: '2 : 1',
+    market: 'G1 gana España',
+    odds: '1.80',
+    return: '180 Bs.',
+    win: 'España gana el partido.',
+    lose: 'Empatan o gana Croacia.',
+    result: 'Si España gana 2-1, tu jugada se cumple.',
+  },
+  {
+    tag: 'Goles',
+    title: 'Total de goles',
+    subtitle: 'España vs Croacia',
+    score: '2 : 1',
+    market: 'Más de 2.5 goles',
+    odds: '2.02',
+    return: '202 Bs.',
+    win: 'El partido termina con 3 goles o más.',
+    lose: 'El partido termina con 0, 1 o 2 goles.',
+    result: 'Si acaba 2-1, hubo 3 goles: gana Más 2.5.',
+  },
+  {
+    tag: 'Boleto combinado',
+    title: 'Combinada',
+    subtitle: 'España + goles',
+    score: '2 : 1',
+    market: 'España gana + Más 1.5 goles',
+    odds: '2.65',
+    return: '265 Bs.',
+    win: 'España gana y el partido tiene 2 goles o más.',
+    lose: 'Si falla una selección, pierde la combinada.',
+    result: 'Si España gana 2-1, se cumplen ambas selecciones.',
+  },
+];
+---
+
+<section class="betting-section block-blue" id="apuestas-futbol">
+  <div class="container">
+    <div class="betting-head">
+      <span class="betting-kicker">FÚTBOL EN 1XBET</span>
+      <h2>Entiende la jugada antes de recargar</h2>
+      <p>
+        Mira un ejemplo rápido con España vs Croacia. Recargas saldo, eliges el mercado y juegas con más claridad.
+      </p>
+    </div>
+
+    <div class="example-grid">
+      {examples.map((item) => (
+        <article class="example-card">
+          <div class="bet-slip">
+            <div class="slip-top">
+              <span>{item.tag}</span>
+              <strong>Ejemplo</strong>
+            </div>
+            <div class="slip-line">
+              <span>Apuesta ref.:</span>
+              <strong>100 Bs.</strong>
+            </div>
+            <div class="slip-line">
+              <span>Cuota ref.:</span>
+              <strong>{item.odds}</strong>
+            </div>
+            <div class="slip-line slip-return">
+              <span>Retorno posible:</span>
+              <strong>{item.return}</strong>
+            </div>
+            <div class="slip-status">Pendiente</div>
+          </div>
+
+          <div class="match-box">
+            <span>{item.subtitle}</span>
+            <strong>{item.score}</strong>
+          </div>
+
+          <h3>{item.title}</h3>
+
+          <div class="market-pill">
+            <span>Mercado</span>
+            <strong>{item.market}</strong>
+          </div>
+
+          <div class="explain-stack">
+            <div class="explain-box win">
+              <span>Cuándo ganas</span>
+              <strong>{item.win}</strong>
+            </div>
+            <div class="explain-box lose">
+              <span>Cuándo pierdes</span>
+              <strong>{item.lose}</strong>
+            </div>
+            <div class="explain-box result">
+              <span>Resultado</span>
+              <strong>{item.result}</strong>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="betting-cta">
+      <div>
+        <strong>¿Listo para probar tu primera jugada?</strong>
+        <span>Te cargamos saldo en minutos para que entres a 1xBet sin vueltas.</span>
+      </div>
+      <Button
+        href="https://wa.me/59176996388?text=Hola%20Zencash,%20quiero%20recargar%20para%20apostar%20en%20f%C3%BAtbol%20en%201xBet"
+        variant="primary"
+        on="blue"
+        size="md"
+      >
+        RECARGAR PARA FÚTBOL
+      </Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .betting-section {
+    padding: var(--space-16) 0 var(--space-20);
+    background-color: #031a34;
+  }
+
+  .betting-head {
+    max-width: 820px;
+    margin-bottom: var(--space-10);
+  }
+
+  .betting-kicker {
+    display: inline-flex;
+    background-color: var(--color-accent-yellow);
+    color: #1a1300;
+    border-radius: var(--radius-full);
+    padding: 5px 12px;
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-black);
+    letter-spacing: 0.05em;
+  }
+
+  .betting-head h2 {
+    color: var(--color-text-white);
+    margin-bottom: var(--space-3);
+  }
+
+  .betting-head p {
+    color: var(--color-text-blue-light);
+    font-size: var(--font-size-lg);
+  }
+
+  .example-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+
+  .example-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    background-color: #062a5f;
+    border: 1px solid rgba(0, 194, 255, 0.32);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.24);
+  }
+
+  .bet-slip {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .slip-top,
+  .slip-line,
+  .match-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .slip-top {
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .slip-top span,
+  .slip-line span {
+    color: var(--color-text-blue-light);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .slip-top strong {
+    background-color: var(--color-success);
+    color: var(--color-text-white);
+    border-radius: var(--radius-full);
+    padding: 3px 8px;
+    font-size: 10px;
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+  }
+
+  .slip-line strong {
+    color: var(--color-text-white);
+    font-size: var(--font-size-xs);
+  }
+
+  .slip-return strong {
+    color: var(--color-accent-yellow);
+  }
+
+  .slip-status {
+    align-self: flex-end;
+    color: var(--color-text-blue-light);
+    font-size: 11px;
+    font-weight: var(--font-weight-bold);
+  }
+
+  .match-box span {
+    color: var(--color-text-white);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .match-box strong {
+    color: var(--color-text-white);
+    font-size: var(--font-size-2xl);
+    line-height: 1;
+  }
+
+  .example-card h3 {
+    color: var(--color-text-white);
+  }
+
+  .market-pill {
+    background-color: var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .market-pill span,
+  .explain-box span {
+    color: var(--color-text-blue-light);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .market-pill strong,
+  .explain-box strong {
+    color: var(--color-text-white);
+    font-size: var(--font-size-sm);
+    line-height: var(--leading-snug);
+  }
+
+  .explain-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .explain-box {
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .explain-box.win {
+    background-color: rgba(0, 200, 83, 0.2);
+  }
+
+  .explain-box.lose {
+    background-color: rgba(255, 99, 132, 0.18);
+  }
+
+  .explain-box.result {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .betting-cta {
+    margin-top: var(--space-8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .betting-cta div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .betting-cta strong {
+    color: var(--color-text-white);
+    font-size: var(--font-size-md);
+  }
+
+  .betting-cta span {
+    color: var(--color-text-blue-light);
+    font-size: var(--font-size-sm);
+  }
+
+  @media (max-width: 1080px) {
+    .example-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .betting-cta {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .betting-section {
+      padding: var(--space-12) 0 var(--space-16);
+    }
+
+    .example-card {
+      padding: var(--space-4);
+    }
+  }
+</style>

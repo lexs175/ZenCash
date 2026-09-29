@@ -1,0 +1,376 @@
+---
+// Withdrawals.astro - Retiros de ganancias estilo nocnoc (lenguaje directo, botones oficiales)
+import Button from './Button.astro';
+import { SITE_CONFIG } from '../config';
+---
+<section class="withdraw-section block-light" id="retiros">
+  <div class="container">
+    <div class="withdraw-grid">
+      <!-- Columna Izquierda: Información de Cobro -->
+      <div class="withdraw-info-card">
+        <div>
+          <h2>Retira directo a tu banco o billetera digital</h2>
+          <p class="withdraw-intro">
+            Cobros procesados de forma inmediata mediante el método oficial <strong>1XBET Cash</strong>.
+          </p>
+
+          <div class="steps-flow">
+            <div class="step-flow-item">
+              <span class="step-badge">1</span>
+              <div class="step-flow-text">
+                <strong>Solicita el retiro en 1xBet</strong>
+                <p>En tu app o web de 1xBet ve a "Retirar fondos" y elige el método <strong>1XBET Cash</strong>.</p>
+              </div>
+            </div>
+
+            <div class="step-flow-item">
+              <span class="step-badge">2</span>
+              <div class="step-flow-text">
+                <strong>Ingresa los datos exactos de nuestra caja</strong>
+                <p>Indica tu monto y selecciona obligatoriamente estos datos:</p>
+                <div class="cash-data-box">
+                  <div class="cash-data-row"><span>País:</span> <strong>Bolivia</strong></div>
+                  <div class="cash-data-row"><span>Ciudad:</span> <strong>Cochabamba <small>(o Кочабамба)</small></strong></div>
+                  <div class="cash-data-row"><span>Calle / Dirección:</span> <strong>Zencash (Coliseo san Francisco)</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-flow-item">
+              <span class="step-badge">3</span>
+              <div class="step-flow-text">
+                <strong>Obtén tu código de retiro</strong>
+                <p>En "Solicitudes de retiro", cuando figure en estado <strong>Aprobado (Approved)</strong>, presiona <strong>"Obtener código"</strong> y cópialo.</p>
+              </div>
+            </div>
+
+            <div class="step-flow-item">
+              <span class="step-badge">4</span>
+              <div class="step-flow-text">
+                <strong>Envíanos tus datos por WhatsApp o Telegram</strong>
+                <p>Mándanos tu <strong>ID de 1xBet</strong>, tu <strong>Código de retiro</strong> y tu <strong>QR de cobro</strong> o cuenta de banco.</p>
+              </div>
+            </div>
+
+            <div class="step-flow-item">
+              <span class="step-badge">5</span>
+              <div class="step-flow-text">
+                <strong>¡Recibe tu dinero al instante!</strong>
+                <p>Validamos tu solicitud en el sistema y te transferimos tus fondos en 2 a 5 minutos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="withdraw-actions">
+          <Button 
+            href="https://wa.me/59176996388?text=Hola%20Zencash,%20deseo%20hacer%20un%20retiro%20de%20mis%20ganancias%20de%201xBet" 
+            variant="primary" 
+            on="light"
+            size="lg"
+            class="withdraw-btn"
+          >
+            SOLICITAR RETIRO POR WHATSAPP
+          </Button>
+
+          <Button 
+            href={SITE_CONFIG.telegramDirect} 
+            variant="telegram" 
+            on="light"
+            size="lg"
+            class="withdraw-btn"
+          >
+            SOLICITAR POR TELEGRAM
+          </Button>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Tarjeta de Solvencia y Verificación Oficial -->
+      <div class="liquidity-banner">
+        <div class="tag-cajero">
+          <span>AGENTE OFICIAL 1XBET</span>
+        </div>
+
+        <h3>Tu seguridad es nuestra prioridad</h3>
+        
+        <div class="agent-verify-card">
+          <div class="verify-badge-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <polyline points="9 12 11 14 15 10"/>
+            </svg>
+            <strong>Agente Oficial Verificado</strong>
+          </div>
+          <p>
+            ¿Quieres comprobar nuestra autenticidad? Solicítanos una verificación y recibirás un mensaje interno oficial de 1xBet en tu cuenta confirmando: <em>"Agent Approved / Agente Verificado"</em>.
+          </p>
+        </div>
+
+        <div class="liquidity-features">
+          <div class="l-feature">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Retiros transferidos en 2 a 5 minutos</span>
+          </div>
+          <div class="l-feature">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Comprobante bancario oficial de cada transferencia</span>
+          </div>
+          <div class="l-feature">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Liquidez permanente en todos los bancos de Bolivia</span>
+          </div>
+        </div>
+
+        <div class="cashier-active-note">
+          <span class="active-dot"></span>
+          <span>Cajeros de guardia activos ahora mismo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .withdraw-section {
+    padding: var(--space-16) 0 var(--space-20);
+  }
+
+  .withdraw-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-8);
+    align-items: stretch;
+  }
+
+  .withdraw-info-card {
+    background-color: var(--color-bg-white);
+    border: 1.5px solid var(--color-border-subtle);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .withdraw-info-card h2 {
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-3);
+  }
+
+  .withdraw-intro {
+    font-size: var(--font-size-md);
+    color: var(--color-text-body);
+    margin-bottom: var(--space-6);
+  }
+
+  .withdraw-intro strong {
+    color: var(--color-primary);
+  }
+
+  .steps-flow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+  }
+
+  .step-flow-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .step-badge {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-flow-text strong {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dark);
+    margin-bottom: 2px;
+  }
+
+  .step-flow-text p {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .cash-data-box {
+    background-color: var(--color-primary-light);
+    border: 1px solid #bfdbfe;
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .cash-data-row {
+    font-size: 11.5px;
+    color: var(--color-text-body);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cash-data-row strong {
+    color: var(--color-primary-dark);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .cash-data-row small {
+    color: var(--color-text-muted);
+    font-weight: normal;
+  }
+
+  .withdraw-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .withdraw-btn {
+    width: auto !important;
+    max-width: 100%;
+  }
+
+  /* Columna Derecha */
+  .liquidity-banner {
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-6);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .tag-cajero {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-accent-yellow);
+    color: #1A1300;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-black);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.04em;
+    width: fit-content;
+  }
+
+  .liquidity-banner h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-text-white);
+  }
+
+  .agent-verify-card {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .verify-badge-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-accent-yellow);
+    font-size: var(--font-size-sm);
+  }
+
+  .verify-badge-row strong {
+    color: var(--color-text-white);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .agent-verify-card p {
+    font-size: var(--font-size-xs);
+    line-height: var(--leading-normal);
+    color: var(--color-text-blue-light);
+    margin: 0;
+  }
+
+  .agent-verify-card em {
+    color: var(--color-accent-yellow);
+    font-style: normal;
+    font-weight: var(--font-weight-bold);
+  }
+
+  .liquidity-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .l-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-white);
+  }
+
+  .cashier-active-note {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-white);
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    width: fit-content;
+  }
+
+  .active-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-accent-yellow);
+  }
+
+  @media (max-width: 900px) {
+    .withdraw-section {
+      padding: var(--space-10) 0 var(--space-12);
+    }
+
+    .withdraw-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .withdraw-info-card,
+    .liquidity-banner {
+      padding: var(--space-6);
+    }
+  }
+</style>

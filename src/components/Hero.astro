@@ -1,0 +1,745 @@
+---
+// Hero.astro - Hero de alta conversión adaptado 100% a móviles con botones oficiales
+import Button from "./Button.astro";
+import { SITE_CONFIG } from "../config";
+---
+
+<section class="hero-block block-blue">
+  <div class="container">
+    <div class="hero-layout">
+      <div class="hero-grid">
+        <div class="hero-text-col">
+          <div class="hero-tags-wrapper">
+            <div class="tag-cajero">
+              <span class="tag-dot"></span>
+              <span>CAJERO OFICIAL BOLIVIA</span>
+            </div>
+            <div class="tag-promo">
+              <span>+50% EXTRA EN TU 1RA RECARGA</span>
+            </div>
+          </div>
+
+          <h1 class="hero-title">
+            Recarga 1xBet en Bolivia sin tarjetas rechazadas
+          </h1>
+
+          <p class="hero-subtext">
+            Envíanos tu ID, paga por <strong>Yape o transferencia bancaria</strong> y recibe tu saldo acreditado con atención personalizada en <strong>menos de 3 minutos</strong>.
+          </p>
+
+          <div class="hero-proof-strip" aria-label="Señales de confianza">
+            <div class="proof-mini-card">
+              <strong>ID verificado</strong>
+              <span>carga directa a tu cuenta</span>
+            </div>
+            <div class="proof-mini-card">
+              <strong>Atención 24/7</strong>
+              <span>cajero real en línea</span>
+            </div>
+            <div class="proof-mini-card">
+              <strong>+50% extra</strong>
+              <span>en tu primera recarga</span>
+            </div>
+          </div>
+
+          <!-- Botones de Acción con Jerarquía Clara (Sin estirar, tamaño pill elegante) -->
+          <div class="hero-actions">
+            <Button
+              href="https://wa.me/59176996388?text=Hola%20Zencash,%20quiero%20hacer%20mi%20primera%20recarga%20en%201xBet%20con%20el%20bono%20del%2050%25"
+              variant="primary"
+              on="blue"
+              size="lg"
+              class="hero-btn-primary"
+            >
+              RECARGAR POR WHATSAPP
+            </Button>
+
+            <div class="hero-secondary-actions">
+              <Button
+                href={SITE_CONFIG.telegramDirect}
+                variant="telegram"
+                on="blue"
+                size="md"
+                class="hero-btn-tg"
+              >
+                TELEGRAM
+              </Button>
+
+              <Button
+                href="#calculadora"
+                variant="secondary"
+                on="blue"
+                size="md"
+                icon="arrow"
+                class="hero-btn-calc"
+              >
+                Calcular saldo
+              </Button>
+            </div>
+          </div>
+
+          <!-- Puntos de Confianza -->
+          <div class="trust-row">
+            <div class="trust-item">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#FFB800"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Acreditación en <strong>3 minutos</strong></span>
+            </div>
+            <div class="trust-item">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#FFB800"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Sin <strong>comisiones ocultas</strong></span>
+            </div>
+            <div class="trust-item">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#FFB800"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Retiros en <strong>Bolivianos</strong></span>
+            </div>
+          </div>
+
+          <div class="hero-risk-note">
+            <span class="risk-lock" aria-hidden="true"></span>
+            <span>Tu operación se confirma por ID y comprobante antes de acreditar.</span>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Tarjeta de Recarga Realista -->
+        <div class="hero-visual-col">
+          <div class="ticket-card">
+            <div class="ticket-top">
+              <div class="ticket-logo-row">
+                <span class="ticket-brand-logo" role="img" aria-label="ZenCash"></span>
+              </div>
+              <span class="badge-status">VALIDADO</span>
+            </div>
+
+            <div class="ticket-assurance">
+              <span class="assurance-dot"></span>
+              <span>Operador Bolivia en línea, validación manual segura</span>
+            </div>
+
+            <div class="ticket-details">
+              <div class="ticket-line">
+                <span class="t-label">Plataforma</span>
+                <div class="t-partner">
+                  <img
+                    src="/1xbet-logo.svg"
+                    alt="1xBet"
+                    width="65"
+                    height="14"
+                  />
+                </div>
+              </div>
+
+              <div class="ticket-line">
+                <span class="t-label">ID de Usuario</span>
+                <span class="t-code">ID: 59382104</span>
+              </div>
+
+              <div class="ticket-line">
+                <span class="t-label">Método</span>
+                <span class="t-val">Yape Bolivia / Transferencia</span>
+              </div>
+
+              <div class="ticket-line">
+                <span class="t-label">Monto Recargado</span>
+                <span class="t-amount">200.00 Bs.</span>
+              </div>
+
+              <div class="ticket-bonus-box">
+                <div class="bonus-tag">PROMO BIENVENIDA (1RA RECARGA)</div>
+                <div class="bonus-amount-row">
+                  <span>Bono extra (50%):</span>
+                  <strong class="bonus-highlight-amount">+100.00 Bs.</strong>
+                </div>
+                <div class="bonus-amount-row total-calc-row">
+                  <span>Saldo total acreditado:</span>
+                  <strong class="total-highlight-amount">300.00 Bs.</strong>
+                </div>
+              </div>
+
+              <div class="ticket-safe-row">
+                <span>ID verificado</span>
+                <span>Comprobante recibido</span>
+                <span>Acreditado</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ticker reciente de actividad -->
+          <div class="live-activity-box">
+            <span class="activity-pulse"></span>
+            <div class="activity-text" id="hero-ticker">
+              <strong>Usuario ID 481***</strong> recargó 150 Bs. vía Yape (hace 1
+              min)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Izquierda: Mensaje y Conversión -->
+  </div>
+</section>
+
+<script>
+  const tickerEl = document.getElementById("hero-ticker");
+  const activities = [
+    "<strong>Usuario ID 481***</strong> recargó 150 Bs. vía Yape (hace 1 min)",
+    "<strong>Usuario ID 592***</strong> recargó 300 Bs. vía BNB (hace 2 min)",
+    "<strong>Usuario ID 310***</strong> recargó 50 USDT vía Binance (hace 3 min)",
+    "<strong>Usuario ID 664***</strong> retiró 800 Bs. a Banco Unión (hace 4 min)",
+    "<strong>Usuario ID 719***</strong> recargó 100 Bs. vía Tigo Money (hace 5 min)",
+  ];
+  let actIndex = 0;
+
+  if (tickerEl) {
+    setInterval(() => {
+      actIndex = (actIndex + 1) % activities.length;
+      tickerEl.style.opacity = "0";
+      setTimeout(() => {
+        tickerEl.innerHTML = activities[actIndex];
+        tickerEl.style.opacity = "1";
+      }, 200);
+    }, 4500);
+  }
+</script>
+
+<style>
+  .hero-block {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 82dvh;
+  }
+
+  .hero-block .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
+    gap: var(--space-10);
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-text-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+  }
+
+  .hero-tags-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .tag-cajero {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background-color: var(--color-accent-yellow);
+    color: #1a1300;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-black);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.04em;
+  }
+
+  .tag-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: #1a1300;
+  }
+
+  .tag-promo {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-bg-white);
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-black);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.04em;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .hero-title {
+    max-width: 760px;
+    font-size: clamp(2.15rem, 4.7vw, 4.25rem);
+    line-height: 1.03;
+    font-weight: var(--font-weight-black);
+    letter-spacing: 0;
+    color: var(--color-text-white);
+    margin: 0;
+  }
+
+  .highlight-yellow {
+    color: var(--color-accent-yellow);
+  }
+
+  .hero-subtext {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.5;
+    color: var(--color-text-blue-light);
+    max-width: 580px;
+  }
+
+  .hero-subtext strong {
+    color: var(--color-text-white);
+  }
+
+  .hero-proof-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    gap: var(--space-2);
+    width: min(100%, 560px);
+  }
+
+  .proof-mini-card {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .proof-mini-card strong {
+    color: var(--color-accent-yellow);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-black);
+    line-height: 1;
+  }
+
+  .proof-mini-card span {
+    color: var(--color-text-blue-light);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  /* Botones de acción (Pills naturales, nada de estirar a 100%) */
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    width: auto;
+  }
+
+  .hero-secondary-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .hero-btn-primary,
+  .hero-btn-tg,
+  .hero-btn-calc {
+    width: auto !important;
+    max-width: 100%;
+  }
+
+  /* Puntos de confianza */
+  .trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-1);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-blue-light);
+  }
+
+  .trust-item strong {
+    color: var(--color-text-white);
+  }
+
+  .hero-risk-note {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background-color: rgba(10, 15, 29, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--color-text-white);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    padding: 9px 13px;
+    border-radius: var(--radius-full);
+  }
+
+  .risk-lock {
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--color-accent-yellow);
+    border-radius: 4px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .risk-lock::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 9px;
+    width: 8px;
+    height: 7px;
+    border: 2px solid var(--color-accent-yellow);
+    border-bottom: 0;
+    border-radius: 8px 8px 0 0;
+    transform: translateX(-50%);
+  }
+
+  /* Tarjeta de Recibo */
+  .hero-visual-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    width: 100%;
+  }
+
+  .ticket-card {
+    background-color: var(--color-bg-white);
+    color: var(--color-text-dark);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-elevated);
+    border: 3px solid #ffffff;
+  }
+
+  .ticket-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-border-subtle);
+    margin-bottom: var(--space-3);
+  }
+
+  .ticket-logo-row {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .ticket-brand-logo {
+    display: block;
+    width: 115px;
+    height: 26px;
+    background-color: var(--color-primary);
+    -webkit-mask: url("/logo.svg") no-repeat left center / contain;
+    mask: url("/logo.svg") no-repeat left center / contain;
+  }
+
+  .badge-status {
+    background-color: #dcfce7;
+    color: #15803d;
+    font-size: 10px;
+    font-weight: var(--font-weight-black);
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.05em;
+  }
+
+  .ticket-assurance {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .assurance-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-success);
+    box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.14);
+    flex-shrink: 0;
+  }
+
+  .ticket-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .ticket-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-xs);
+  }
+
+  .t-label {
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .t-val {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dark);
+  }
+
+  .t-code {
+    font-family: monospace;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    background-color: #f1f5f9;
+    color: var(--color-primary);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+  }
+
+  .t-amount {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-black);
+    color: var(--color-primary);
+  }
+
+  .ticket-bonus-box {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    margin-top: var(--space-1);
+  }
+
+  .bonus-tag {
+    font-size: 10px;
+    font-weight: var(--font-weight-black);
+    color: #15803d;
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+  }
+
+  .bonus-amount-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    color: #166534;
+    padding: 2px 0;
+  }
+
+  .bonus-highlight-amount {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-black);
+    color: var(--color-primary);
+  }
+
+  .total-calc-row {
+    border-top: 1px dashed #86efac;
+    margin-top: var(--space-1);
+    padding-top: var(--space-1);
+  }
+
+  .total-highlight-amount {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-black);
+    color: #15803d;
+  }
+
+  .ticket-safe-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+    padding-top: var(--space-3);
+    margin-top: var(--space-1);
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .ticket-safe-row span {
+    background-color: #f8fafc;
+    color: var(--color-text-muted);
+    border-radius: var(--radius-sm);
+    padding: 6px 8px;
+    font-size: 10px;
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+  }
+
+  .ticket-bottom {
+    margin-top: var(--space-3);
+    padding-top: var(--space-2);
+    border-top: 2px solid var(--color-border-subtle);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    font-size: 11px;
+    color: var(--color-text-muted);
+  }
+
+  .ticket-bottom strong {
+    color: var(--color-text-dark);
+  }
+
+  .sep {
+    opacity: 0.4;
+  }
+
+  /* Live Activity Box */
+  .live-activity-box {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    padding: var(--space-2) var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-text-white);
+    font-size: var(--font-size-xs);
+    width: 100%;
+  }
+
+  .activity-pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-accent-yellow);
+    flex-shrink: 0;
+    box-shadow: 0 0 0 2px rgba(255, 184, 0, 0.3);
+  }
+
+  .activity-text {
+    transition: opacity 200ms ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .activity-text strong {
+    color: var(--color-accent-yellow);
+  }
+
+  /* Responsive Móvil & Tablet */
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .hero-block {
+      min-height: auto;
+      padding: var(--space-12) 0 var(--space-12);
+    }
+
+    /* En Tablet y Móvil: NUNCA estirar botones al 100% de la pantalla */
+    .hero-actions {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-3);
+      width: auto;
+    }
+
+    .hero-secondary-actions {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-2);
+      width: auto;
+    }
+
+    .hero-btn-primary {
+      width: auto !important;
+      padding: 11px 20px;
+      font-size: 14px;
+    }
+
+    .hero-btn-tg,
+    .hero-btn-calc {
+      width: auto !important;
+      padding: 9px 16px;
+      font-size: 13px;
+    }
+
+    .trust-row {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-proof-strip {
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+
+    .proof-mini-card {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .ticket-safe-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

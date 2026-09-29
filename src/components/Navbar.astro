@@ -1,0 +1,385 @@
+---
+// Navbar.astro - Header flotante con tarjeta blanca, logo azul, links esenciales, botones oficiales con Button.astro y hide/reveal al scrollear
+import Button from "./Button.astro";
+import { SITE_CONFIG } from "../config";
+---
+
+<header class="navbar-wrapper" id="main-navbar">
+  <div class="navbar-container">
+    <div class="navbar-card">
+      <!-- Logo ZenCash Oficial (en azul primario con CSS mask sobre logo.svg) -->
+      <a href="/" class="brand-link" aria-label="ZenCash Inicio">
+        <span class="brand-logo" role="img" aria-label="ZenCash"></span>
+      </a>
+
+      <!-- Navegación Esencial Desktop -->
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#metodos-pago" class="nav-link">Recargar</a>
+        <a href="#retiros" class="nav-link">Retirar</a>
+        <a
+          href={SITE_CONFIG.telegramGroup}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-link"
+        >
+          Grupo Telegram
+        </a>
+      </nav>
+
+      <!-- Botones Oficiales del Sistema (Mismo componente Button que en toda la web) -->
+      <div class="nav-actions-desktop">
+        <Button
+          href={SITE_CONFIG.telegramDirect}
+          variant="telegram"
+          size="sm"
+        >
+          Cajero Telegram
+        </Button>
+        <Button
+          href="https://wa.me/59176996388?text=Hola%20Zencash,%20quiero%20hacer%20una%20recarga%20en%201xBet"
+          variant="primary"
+          size="sm"
+        >
+          WhatsApp
+        </Button>
+      </div>
+
+      <!-- Botón Hamburguesa Móvil -->
+      <button
+        type="button"
+        class="burger-btn"
+        id="burger-toggle"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+      >
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Drawer / Menú Móvil Desplegable -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-status">
+      <span class="drawer-dot"></span>
+      <span>Cajero activo 24/7 en toda Bolivia</span>
+    </div>
+
+    <nav class="drawer-nav">
+      <a href="#metodos-pago" class="drawer-link">Recargar Saldo</a>
+      <a href="#retiros" class="drawer-link">Retirar Ganancias</a>
+      <a
+        href={SITE_CONFIG.telegramGroup}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="drawer-link"
+      >
+        Grupo de Telegram
+      </a>
+    </nav>
+
+    <div class="drawer-ctas">
+      <Button
+        href="https://wa.me/59176996388?text=Hola%20Zencash,%20quiero%20hacer%20una%20recarga%20en%201xBet%20con%20el%2050%25%20de%20bono"
+        variant="primary"
+        size="md"
+        fullWidth
+      >
+        Recargar por WhatsApp
+      </Button>
+      <Button
+        href={SITE_CONFIG.telegramDirect}
+        variant="telegram"
+        size="md"
+        fullWidth
+      >
+        Cajero en Telegram
+      </Button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById("burger-toggle");
+  const drawer = document.getElementById("mobile-drawer");
+  const drawerLinks = document.querySelectorAll(".drawer-link, .drawer-ctas a");
+  const navbar = document.getElementById("main-navbar");
+
+  // Control del Drawer Móvil
+  function setDrawer(open: boolean) {
+    if (!toggleBtn || !drawer) return;
+    toggleBtn.setAttribute("aria-expanded", String(open));
+    toggleBtn.classList.toggle("active", open);
+    drawer.classList.toggle("open", open);
+    drawer.setAttribute("aria-hidden", String(!open));
+    if (open) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+  }
+
+  if (toggleBtn && drawer) {
+    toggleBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = drawer.classList.contains("open");
+      setDrawer(!isOpen);
+    });
+
+    drawerLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        setDrawer(false);
+      });
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && drawer.classList.contains("open")) {
+        setDrawer(false);
+      }
+    });
+  }
+
+  // Scroll Hide on Down / Reveal on Up (Navbar inteligente)
+  let lastScrollY = window.scrollY;
+  const scrollThreshold = 10;
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      const currentScrollY = window.scrollY;
+
+      // Si el menú móvil está abierto, no ocultar el navbar
+      if (drawer && drawer.classList.contains("open")) return;
+
+      // Cerca del tope, siempre visible
+      if (currentScrollY <= 40) {
+        navbar?.classList.remove("navbar--hidden");
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      const diff = currentScrollY - lastScrollY;
+
+      if (diff > scrollThreshold && currentScrollY > 90) {
+        // Scrolleando hacia abajo -> Se oculta hacia arriba
+        navbar?.classList.add("navbar--hidden");
+      } else if (diff < -scrollThreshold) {
+        // Scrolleando hacia arriba -> Aparece suavemente
+        navbar?.classList.remove("navbar--hidden");
+      }
+
+      lastScrollY = currentScrollY;
+    },
+    { passive: true },
+  );
+</script>
+
+<style>
+  .navbar-wrapper {
+    position: fixed;
+    top: 14px;
+    z-index: 100;
+    width: 100%;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  .navbar-wrapper.navbar--hidden {
+    transform: translateY(-160%);
+  }
+
+  .navbar-container {
+    max-width: var(--max-width-desktop);
+    margin-left: auto;
+    margin-right: auto;
+    padding-inline: 1rem;
+    pointer-events: auto;
+  }
+
+  /* Tarjeta blanca flotante estilo nocnoc */
+  .navbar-card {
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-md);
+    box-shadow:
+      0 4px 20px rgba(0, 20, 80, 0.08),
+      0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 18px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Logo ZenCash en azul usando CSS Mask sobre el archivo logo.svg */
+  .brand-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .brand-logo {
+    display: block;
+    width: 130px;
+    height: 32px;
+    background-color: var(--color-primary);
+    -webkit-mask: url("/logo.svg") no-repeat center / contain;
+    mask: url("/logo.svg") no-repeat center / contain;
+    transition: background-color var(--transition-fast);
+  }
+
+  .brand-link:hover .brand-logo {
+    background-color: var(--color-primary-hover);
+  }
+
+  /* Links Centrales Esenciales */
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .nav-link {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+  }
+
+  /* Acciones Desktop con botones Button oficiales */
+  .nav-actions-desktop {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  /* Botón Hamburguesa Móvil (Gris oscuro sobre blanco) */
+  .burger-btn {
+    display: none;
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 6px;
+    border-radius: var(--radius-sm);
+  }
+
+  .burger-line {
+    width: 22px;
+    height: 2.2px;
+    background-color: var(--color-text-dark);
+    border-radius: 2px;
+    transition:
+      transform var(--transition-fast),
+      opacity var(--transition-fast);
+  }
+
+  .burger-btn.active .burger-line:nth-child(1) {
+    transform: translateY(7.2px) rotate(45deg);
+  }
+
+  .burger-btn.active .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-btn.active .burger-line:nth-child(3) {
+    transform: translateY(-7.2px) rotate(-45deg);
+  }
+
+  /* Drawer Móvil Desplegable */
+  .mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: var(--space-4);
+    right: var(--space-4);
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 40px rgba(0, 20, 80, 0.2);
+    padding: var(--space-5) var(--space-5) var(--space-6);
+    flex-direction: column;
+    gap: var(--space-4);
+    z-index: 999;
+    pointer-events: auto;
+  }
+
+  .mobile-drawer.open {
+    display: flex;
+  }
+
+  .drawer-status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    background-color: var(--color-bg-light);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+  }
+
+  .drawer-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-accent-green);
+  }
+
+  .drawer-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .drawer-link {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dark);
+    text-decoration: none;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .drawer-link:hover {
+    color: var(--color-primary);
+  }
+
+  .drawer-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-top: var(--space-2);
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 900px) {
+    .nav-links,
+    .nav-actions-desktop {
+      display: none;
+    }
+
+    .burger-btn {
+      display: flex;
+    }
+
+    .navbar-card {
+      padding: 8px 16px;
+    }
+  }
+</style>

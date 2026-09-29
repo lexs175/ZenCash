@@ -1,0 +1,173 @@
+---
+// CtaBanner.astro - Banner final de cierre en Azul Cobalto estilo nocnoc (lenguaje directo, botones oficiales)
+import Button from './Button.astro';
+import { SITE_CONFIG } from '../config';
+---
+<section class="cta-section block-blue">
+  <div class="container cta-container">
+    <div class="cta-inner">
+      <div class="tag-cajero">
+        <span>CAJERO EN LÍNEA 24/7</span>
+      </div>
+
+      <h2>¿Listo para jugar? Empieza con +50% extra</h2>
+
+      <p class="cta-desc">
+        Recarga en 3 minutos por <strong>Yape o tu banco</strong> y recibe tu bono directo a tu ID.
+      </p>
+
+      <div class="cta-button-wrap">
+        <Button 
+          href="https://wa.me/59176996388?text=Hola%20Zencash,%20deseo%20hacer%20una%20recarga%20inmediata%20en%201xBet%20con%20el%2050%25%20de%20bono" 
+          variant="primary" 
+          on="blue"
+          size="lg"
+          class="cta-main-btn"
+        >
+          RECARGAR POR WHATSAPP
+        </Button>
+
+        <Button 
+          href={SITE_CONFIG.telegramDirect} 
+          variant="telegram" 
+          on="blue"
+          size="lg"
+          class="cta-tg-btn"
+        >
+          ESCRIBIR POR TELEGRAM
+        </Button>
+      </div>
+
+      <div class="cta-perks-row">
+        <div class="cta-perk">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>+50% en tu 1ra recarga</span>
+        </div>
+        <span class="cta-sep">•</span>
+        <div class="cta-perk">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Acreditación en 3 minutos</span>
+        </div>
+        <span class="cta-sep">•</span>
+        <div class="cta-perk">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Todos los bancos de Bolivia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding: var(--space-16) 0;
+  }
+
+  .cta-container {
+    max-width: 860px;
+  }
+
+  .cta-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .tag-cajero {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-accent-yellow);
+    color: #1A1300;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-black);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.04em;
+  }
+
+  .cta-inner h2 {
+    color: var(--color-text-white);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .cta-desc {
+    font-size: var(--font-size-md);
+    color: var(--color-text-blue-light);
+    max-width: 600px;
+    line-height: var(--leading-normal);
+  }
+
+  .cta-desc strong {
+    color: var(--color-text-white);
+  }
+
+  .cta-button-wrap {
+    margin-top: var(--space-3);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  .cta-perks-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+  }
+
+  .cta-perk {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-blue-light);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .cta-sep {
+    opacity: 0.3;
+  }
+
+  @media (max-width: 640px) {
+    .cta-section {
+      padding: var(--space-12) 0;
+    }
+
+    .cta-button-wrap {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .cta-main-btn,
+    .cta-tg-btn {
+      width: auto !important;
+      max-width: 100%;
+      padding: 11px 22px;
+      font-size: 14px;
+    }
+
+    .cta-perks-row {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .cta-sep {
+      display: none;
+    }
+  }
+</style>

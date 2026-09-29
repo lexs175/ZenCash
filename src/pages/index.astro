@@ -1,0 +1,90 @@
+---
+// index.astro - Landing Page Oficial ZENCASH (Cajero Oficial 1xBet Bolivia)
+import '../styles/tokens.css';
+
+import TopBar from '../components/TopBar.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import PaymentMethods from '../components/PaymentMethods.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import BettingExamples from '../components/BettingExamples.astro';
+import Calculator from '../components/Calculator.astro';
+import Comparison from '../components/Comparison.astro';
+import Withdrawals from '../components/Withdrawals.astro';
+import SocialProof from '../components/SocialProof.astro';
+import Faq from '../components/Faq.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import StickyMobileBar from '../components/StickyMobileBar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>ZENCASH | Cajero Oficial 1xBet Bolivia • Recargas y Retiros al Instante</title>
+    <meta 
+      name="description" 
+      content="Recarga tu cuenta 1xBet en Bolivia en menos de 3 minutos con Yape y bancos locales. Sin tarjetas rechazadas y con +50% de bono de bienvenida directo a tu ID." 
+    />
+    <meta name="keywords" content="cajero 1xbet bolivia, recargar 1xbet bolivia, yape 1xbet, zencash bolivia, depositar 1xbet bnb union, recargar 1xbet banco bolivia" />
+
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ZENCASH | Cajero Oficial 1xBet Bolivia" />
+    <meta property="og:description" content="Recargas y retiros 1xBet al instante en Bolivia. Acreditación en menos de 3 minutos con Yape y bancos locales." />
+    <meta property="og:image" content="/1xbet-logo.svg" />
+  </head>
+  <body>
+    <!-- 1. Barra de Disponibilidad en Vivo -->
+    <TopBar />
+
+    <!-- 2. Header Oficial con Co-Branding -->
+    <Navbar />
+
+    <!-- 3. Main Content -->
+    <main>
+      <!-- Hero de Alta Conversión -->
+      <Hero />
+
+      <!-- Logos Reales de Bancos y Billeteras en Bolivia -->
+      <PaymentMethods />
+
+      <!-- Flujo en 3 Pasos Sin Fricción -->
+      <HowItWorks />
+
+      <!-- Ejemplos Visuales de Mercados de Futbol -->
+      <BettingExamples />
+
+      <!-- Cotizador / Calculadora Interactiva de Recarga -->
+      <Calculator />
+
+      <!-- Comparativa: Zencash vs Tarjeta Rechazada -->
+      <Comparison />
+
+      <!-- Retiros Garantizados en Bolivianos -->
+      <Withdrawals />
+
+      <!-- Pruebas Sociales y Chats Reales de WhatsApp -->
+      <SocialProof />
+
+      <!-- Preguntas Frecuentes / Manejo de Objeciones -->
+      <Faq />
+
+      <!-- CTA de Cierre -->
+      <CtaBanner />
+    </main>
+
+    <!-- Barra Flotante Permanente para Móviles -->
+    <StickyMobileBar />
+
+    <!-- Footer Institucional (+18) -->
+    <Footer />
+  </body>
+</html>

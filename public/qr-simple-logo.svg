@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none">
+  <!-- QR Simple Bolivia Emblem -->
+  <g transform="translate(6, 6)">
+    <rect width="36" height="36" rx="8" fill="#002b5c"/>
+    <!-- QR Corner Markers -->
+    <rect x="5" y="5" width="10" height="10" rx="2" fill="#00A4E4"/>
+    <rect x="7" y="7" width="6" height="6" rx="1" fill="#002b5c"/>
+    <rect x="8.5" y="8.5" width="3" height="3" fill="#00E676"/>
+
+    <rect x="21" y="5" width="10" height="10" rx="2" fill="#00A4E4"/>
+    <rect x="23" y="7" width="6" height="6" rx="1" fill="#002b5c"/>
+    <rect x="24.5" y="8.5" width="3" height="3" fill="#00E676"/>
+
+    <rect x="5" y="21" width="10" height="10" rx="2" fill="#00A4E4"/>
+    <rect x="7" y="23" width="6" height="6" rx="1" fill="#002b5c"/>
+    <rect x="8.5" y="24.5" width="3" height="3" fill="#00E676"/>
+
+    <!-- Data nodes -->
+    <rect x="21" y="21" width="4" height="4" rx="1" fill="#00E676"/>
+    <rect x="27" y="21" width="4" height="4" rx="1" fill="#00A4E4"/>
+    <rect x="21" y="27" width="4" height="4" rx="1" fill="#00A4E4"/>
+    <rect x="27" y="27" width="4" height="4" rx="1" fill="#00E676"/>
+  </g>
+  <text x="50" y="24" font-family="'Inter', 'Arial Black', sans-serif" font-size="18" font-weight="900" fill="#002b5c" letter-spacing="-0.02em">
+    QR <tspan fill="#00A4E4">SIMPLE</tspan>
+  </text>
+  <text x="51" y="34" font-family="'Inter', Arial, sans-serif" font-size="7.5" font-weight="700" fill="#00E676" letter-spacing="0.08em">
+    INTERBANCARIO BOLIVIA
+  </text>
+</svg>

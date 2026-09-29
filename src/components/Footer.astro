@@ -1,0 +1,363 @@
+---
+// Footer.astro - Pie de página estilo profesional con acordeón móvil idéntico a referencia y desktop en 4 columnas
+import { SITE_CONFIG } from '../config';
+---
+<footer class="footer block-blue">
+  <div class="container footer-content">
+    <div class="footer-top-grid">
+      <!-- Columna 1: Marca y Resumen -->
+      <div class="footer-brand-summary">
+        <div class="footer-logos-row">
+          <span class="footer-brand-logo" role="img" aria-label="ZenCash"></span>
+        </div>
+        <p class="footer-summary-text">
+          Cajero oficial para usuarios de 1xBet en Bolivia. Recargas y retiros inmediatos en Bolivianos y USDT los 365 días del año.
+        </p>
+      </div>
+
+      <!-- Acordeón 1: Navegación -->
+      <div class="footer-acc-item" id="acc-nav">
+        <button type="button" class="footer-acc-trigger" aria-expanded="false" aria-controls="panel-nav">
+          <span class="footer-acc-title">Navegación</span>
+          <svg class="footer-acc-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="footer-acc-panel" id="panel-nav">
+          <a href="#metodos-pago">Bancos y Billeteras</a>
+          <a href="#como-funciona">¿Cómo Funciona?</a>
+          <a href="#calculadora">Calculadora de Recarga</a>
+          <a href="#comparativa">Por qué Zencash</a>
+          <a href="#retiros">Retiro de Ganancias</a>
+          <a href="#faq">Preguntas Frecuentes</a>
+          <a href={SITE_CONFIG.telegramGroup} target="_blank" rel="noopener noreferrer">Grupo de Telegram</a>
+          <a href={SITE_CONFIG.telegramDirect} target="_blank" rel="noopener noreferrer">Cajero @Win_ZenCash</a>
+        </div>
+      </div>
+
+      <!-- Acordeón 2: Métodos de Pago -->
+      <div class="footer-acc-item" id="acc-methods">
+        <button type="button" class="footer-acc-trigger" aria-expanded="false" aria-controls="panel-methods">
+          <span class="footer-acc-title">Métodos de Pago</span>
+          <svg class="footer-acc-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="footer-acc-panel" id="panel-methods">
+          <a href="#metodos-pago">Yape Bolivia (BCP)</a>
+          <a href="#metodos-pago">Altoke</a>
+          <a href="#metodos-pago">Takenos</a>
+          <a href="#metodos-pago">AISA</a>
+          <a href="#metodos-pago">Transferencia bancaria</a>
+          <a href="#metodos-pago">Binance Pay (USDT)</a>
+        </div>
+      </div>
+
+      <!-- Acordeón 3: Garantía & Seguridad -->
+      <div class="footer-acc-item" id="acc-security">
+        <button type="button" class="footer-acc-trigger" aria-expanded="false" aria-controls="panel-security">
+          <span class="footer-acc-title">Garantía & Seguridad</span>
+          <svg class="footer-acc-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="footer-acc-panel" id="panel-security">
+          <div class="security-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Acreditación directa a tu ID</span>
+          </div>
+          <div class="security-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Pagos en Bs. por banco o billetera</span>
+          </div>
+          <div class="security-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Cajeros de guardia activos 24/7</span>
+          </div>
+          <div class="security-point">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Juego Responsable (+18)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legal Disclaimer -->
+    <div class="footer-legal-notice">
+      <p>
+        <strong>Aviso Legal:</strong> ZENCASH es un servicio independiente de procesamiento y facilitación de depósitos y cobros electrónicos en moneda nacional para usuarios residentes en Bolivia de la plataforma 1xBet. Zencash no establece cuotas, no opera apuestas ni gestiona saldos de juego por cuenta propia; procesa pagos a solicitud expresa del titular. El juego compulsivo es perjudicial para la salud. Juega responsablemente (+18).
+      </p>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <span>© 2026 ZENCASH Bolivia • Cajero Oficial 1xBet</span>
+      <div class="footer-channels">
+        <a href="https://wa.me/59176996388?text=Hola%20Zencash,%20necesito%20atención" target="_blank" rel="noopener noreferrer">
+          WhatsApp 24/7
+        </a>
+        <span class="f-sep">•</span>
+        <a href={SITE_CONFIG.telegramDirect} target="_blank" rel="noopener noreferrer">
+          Cajero @Win_ZenCash
+        </a>
+        <span class="f-sep">•</span>
+        <a href={SITE_CONFIG.telegramGroup} target="_blank" rel="noopener noreferrer">
+          Grupo de Telegram
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const triggers = document.querySelectorAll<HTMLButtonElement>('.footer-acc-trigger');
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      // En móvil (<=900px) conmuta el acordeón
+      if (window.innerWidth <= 900) {
+        const item = trigger.closest('.footer-acc-item');
+        if (!item) return;
+        const isOpen = item.classList.contains('active');
+        item.classList.toggle('active', !isOpen);
+        trigger.setAttribute('aria-expanded', String(!isOpen));
+      }
+    });
+  });
+</script>
+
+<style>
+  .footer {
+    padding: var(--space-16) 0 var(--space-8);
+    border-top: 1px solid var(--color-border-blue);
+    background-color: var(--color-primary);
+  }
+
+  /* Desktop (>900px): 4 columnas limpias con panel permanentemente visible */
+  @media (min-width: 901px) {
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+      gap: var(--space-8);
+      padding-bottom: var(--space-10);
+      border-bottom: 1px solid var(--color-border-blue);
+    }
+
+    .footer-acc-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-acc-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: transparent;
+      border: none;
+      padding: 0 0 var(--space-4) 0;
+      cursor: default;
+      pointer-events: none;
+      font-family: inherit;
+    }
+
+    .footer-acc-title {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-black);
+      color: var(--color-accent-yellow);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .footer-acc-icon {
+      display: none;
+    }
+
+    .footer-acc-panel {
+      display: flex !important;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+  }
+
+  /* Móvil & Tablet (<=900px): Acordeón idéntico al diseño de referencia */
+  @media (max-width: 900px) {
+    .footer {
+      padding: var(--space-10) 0 var(--space-8);
+    }
+
+    .footer-top-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-brand-summary {
+      padding-bottom: var(--space-6);
+      margin-bottom: var(--space-2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-acc-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-acc-trigger {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .footer-acc-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-acc-icon {
+      color: #FFFFFF;
+      opacity: 0.9;
+      transition: transform 200ms ease;
+      flex-shrink: 0;
+    }
+
+    .footer-acc-item.active .footer-acc-icon {
+      transform: rotate(180deg);
+    }
+
+    .footer-acc-panel {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 18px;
+    }
+
+    .footer-acc-item.active .footer-acc-panel {
+      display: flex;
+    }
+  }
+
+  /* Logos & Brand Summary */
+  .footer-logos-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-divider {
+    width: 1px;
+    height: 22px;
+    background-color: var(--color-border-blue);
+  }
+
+  .footer-brand-logo {
+    display: block;
+    width: 130px;
+    height: 32px;
+    background-color: #FFFFFF;
+    -webkit-mask: url("/logo.svg") no-repeat left center / contain;
+    mask: url("/logo.svg") no-repeat left center / contain;
+  }
+
+  .footer-partner-logo {
+    filter: brightness(0) invert(1);
+    height: 16px;
+    width: auto;
+  }
+
+  .footer-summary-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-blue-light);
+    line-height: var(--leading-normal);
+    max-width: 440px;
+  }
+
+  /* Links dentro de los paneles */
+  .footer-acc-panel a {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    padding: 3px 0;
+    transition: opacity var(--transition-fast), color var(--transition-fast);
+  }
+
+  .footer-acc-panel a:hover {
+    color: var(--color-accent-yellow);
+    opacity: 1;
+  }
+
+  /* Puntos de seguridad */
+  .security-point {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-blue-light);
+    padding: 2px 0;
+  }
+
+  /* Legal Notice */
+  .footer-legal-notice {
+    padding: var(--space-4) 0 var(--space-6);
+    border-bottom: 1px solid var(--color-border-blue);
+    font-size: 11px;
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-blue-light);
+    opacity: 0.8;
+  }
+
+  .footer-legal-notice strong {
+    color: var(--color-text-white);
+  }
+
+  /* Bottom Bar */
+  .footer-bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    padding-top: var(--space-4);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-blue-light);
+  }
+
+  .footer-channels {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .f-sep {
+    opacity: 0.4;
+  }
+
+  .footer-bottom-bar a {
+    color: var(--color-accent-yellow);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+  }
+
+  .footer-bottom-bar a:hover {
+    text-decoration: underline;
+  }
+</style>

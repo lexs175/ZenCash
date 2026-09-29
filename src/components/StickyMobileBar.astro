@@ -1,0 +1,173 @@
+---
+// StickyMobileBar.astro - Barra flotante de conversión para móviles con WhatsApp y Telegram
+import { SITE_CONFIG } from '../config';
+---
+<div class="sticky-mobile-bar" id="sticky-bar">
+  <div class="sticky-container">
+    <div class="sticky-info">
+      <div class="sticky-status">
+        <span class="live-dot-yellow"></span>
+        <span>Cajero 24/7</span>
+      </div>
+      <span class="sticky-promo">+50% Bono 1ra Recarga</span>
+    </div>
+
+    <div class="sticky-actions">
+      <a 
+        href={SITE_CONFIG.telegramDirect} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="sticky-tg-btn"
+        aria-label="Contactar por Telegram"
+      >
+        <svg class="sticky-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.04c-.13.58-.47.72-.96.45l-2.6-1.92-1.25 1.2c-.14.14-.26.26-.53.26l.18-2.64 4.81-4.35c.21-.19-.05-.29-.32-.11l-5.95 3.75-2.56-.8c-.56-.17-.57-.56.12-.83l10-3.86c.46-.17.87.11.76.8z"/>
+        </svg>
+      </a>
+
+      <a 
+        href="https://wa.me/59176996388?text=Hola%20Zencash,%20quiero%20hacer%20mi%20primera%20recarga%20en%201xBet%20con%20el%2050%25%20de%20bono" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="sticky-whatsapp-btn"
+      >
+        <svg class="sticky-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.014 8.00613C6.12827 7.1024 7.30277 5.87414 8.23488 6.01043L8.23339 6.00894C9.14051 6.18132 9.85859 7.74261 10.2635 8.44465C10.5504 8.95402 10.3641 9.4701 10.0965 9.68787C9.7355 9.97883 9.17099 10.3803 9.28943 10.7834C9.5 11.5 12 14 13.2296 14.7107C13.695 14.9797 14.0325 14.2702 14.3207 13.9067C14.5301 13.6271 15.0466 13.46 15.5548 13.736C16.3138 14.178 17.0288 14.6917 17.69 15.27C18.0202 15.546 18.0977 15.9539 17.8689 16.385C17.4659 17.1443 16.3003 18.1456 15.4542 17.9421C13.9764 17.5868 8 15.27 6.08033 8.55801C5.97237 8.24048 5.99955 8.12044 6.014 8.00613Z"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C10.7764 23 10.0994 22.8687 9 22.5L6.89443 23.5528C5.56462 24.2177 4 23.2507 4 21.7639V19.5C1.84655 17.492 1 15.1767 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23ZM6 18.6303L5.36395 18.0372C3.69087 16.4772 3 14.7331 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C11.0143 21 10.552 20.911 9.63595 20.6038L8.84847 20.3397L6 21.7639V18.6303Z"/>
+        </svg>
+        <span>RECARGAR AHORA</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sticky-mobile-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    z-index: 100;
+    background-color: var(--color-bg-blue-dark);
+    border-top: 2px solid var(--color-accent-yellow);
+    padding: 8px 16px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .sticky-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .sticky-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .sticky-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-black);
+    color: var(--color-text-white);
+    white-space: nowrap;
+  }
+
+  .live-dot-yellow {
+    width: 7px;
+    height: 7px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-accent-yellow);
+    flex-shrink: 0;
+  }
+
+  .sticky-promo {
+    font-size: 11px;
+    color: var(--color-accent-yellow);
+    font-weight: var(--font-weight-bold);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sticky-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-shrink: 0;
+  }
+
+  .sticky-tg-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    border-radius: var(--radius-full);
+    background-color: #229ED9;
+    color: #FFFFFF;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(34, 158, 217, 0.4);
+    transition: transform var(--transition-fast);
+  }
+
+  .sticky-tg-btn:hover {
+    transform: scale(1.05);
+  }
+
+  .sticky-whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--color-cta-green);
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: var(--font-weight-black);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 200, 83, 0.4);
+    flex-shrink: 0;
+    white-space: nowrap;
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .sticky-whatsapp-btn:hover {
+    background-color: var(--color-cta-green-hover);
+    transform: scale(1.02);
+  }
+
+  .sticky-icon {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .sticky-mobile-bar {
+      display: block;
+    }
+  }
+</style>

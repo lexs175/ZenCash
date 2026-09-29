@@ -1,0 +1,388 @@
+---
+// SocialProof.astro - Testimonios y pruebas reales estilo nocnoc (cero emojis)
+import { SITE_CONFIG } from '../config';
+
+const chatProofs = [
+  {
+    client: 'Carlos M.',
+    location: 'Santa Cruz',
+    id: 'ID: 49102***',
+    bank: 'Banco Nacional de Bolivia (BNB)',
+    msgClient: 'Buenas, ya te transferí los 300 Bs al QR del BNB. Mi ID es 49102844',
+    msgZencash: '¡Listo Carlos! Ya cargamos tus 300 Bs más el bono de 150 Bs. Tienes 450 Bs en cuenta.',
+    clientReply: '¡Qué velocidad! Ya me figura el saldo completo en la app. Gracias bro.',
+    time: '14:22'
+  },
+  {
+    client: 'Alejandro R.',
+    location: 'La Paz',
+    id: 'ID: 61839***',
+    bank: 'Yape Bolivia (BCP)',
+    msgClient: 'Hola, mi banco me rebotó la tarjeta. ¿Si recargo 100 Bs por Yape me dan el bono del 50%?',
+    msgZencash: 'Buenas Alejandro, ¡claro que sí! Con tu primera recarga juegas con 150 Bs al instante.',
+    clientReply: 'Excelente, ya me llegó la notificación con los 150 Bs. Me salvaron para el partido.',
+    time: '18:05'
+  },
+  {
+    client: 'Mauricio V.',
+    location: 'Cochabamba',
+    id: 'ID: 55210***',
+    bank: 'Banco Unión',
+    msgClient: 'Buenas noches, gané mi combinada. ¿Puedo retirar 1,200 Bs a Banco Unión?',
+    msgZencash: '¡Felicidades Mauricio! Pásanos tu código de retiro de la app y tu número de cuenta.',
+    clientReply: 'Ya me cayó la transferencia al banco, tardaron menos de 10 min. Buen servicio.',
+    time: '21:40'
+  }
+];
+---
+<section class="social-section block-white">
+  <div class="container">
+    <div class="section-title-wrap">
+      <h2>Pruebas reales de recargas y retiros</h2>
+      <p class="section-subtext">
+        Conversaciones como estas muestran el proceso completo: pago recibido, ID validado y saldo acreditado.
+      </p>
+    </div>
+
+    <div class="channel-proof-callout">
+      <div class="channel-callout-info">
+        <div class="tg-circle-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.04c-.13.58-.47.72-.96.45l-2.6-1.92-1.25 1.2c-.14.14-.26.26-.53.26l.18-2.64 4.81-4.35c.21-.19-.05-.29-.32-.11l-5.95 3.75-2.56-.8c-.56-.17-.57-.56.12-.83l10-3.86c.46-.17.87.11.76.8z"/>
+          </svg>
+        </div>
+        <div class="channel-callout-text">
+          <span class="channel-callout-title">Canal activo con clientes de Bolivia</span>
+          <span class="channel-callout-desc">Consulta referencias, promociones y avisos del cajero antes de recargar.</span>
+        </div>
+      </div>
+      <a href={SITE_CONFIG.telegramGroup} target="_blank" rel="noopener noreferrer" class="channel-callout-btn">
+        Ver grupo oficial
+      </a>
+    </div>
+
+    <div class="chat-proofs-grid">
+      {chatProofs.map((p) => (
+        <div class="chat-proof-card">
+          <div class="chat-user-header">
+            <div class="chat-avatar">{p.client.charAt(0)}</div>
+            <div class="chat-user-info">
+              <span class="user-fullname">{p.client} ({p.location})</span>
+              <span class="user-bank-ref">{p.id} • {p.bank}</span>
+            </div>
+            <span class="verified-pill">Verificado</span>
+          </div>
+
+          <div class="chat-messages-body">
+            <div class="chat-bubble client-bubble">
+              <p>{p.msgClient}</p>
+              <span class="time-stamp">{p.time}</span>
+            </div>
+
+            <div class="chat-bubble zencash-bubble">
+              <span class="sender-name">ZENCASH OFICIAL</span>
+              <p>{p.msgZencash}</p>
+              <span class="time-stamp">14:24</span>
+            </div>
+
+            <div class="chat-bubble client-bubble">
+              <p>{p.clientReply}</p>
+              <span class="time-stamp">14:25</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Barra de Métricas en Azul Cobalto Nocnoc -->
+    <div class="metrics-banner block-blue">
+      <div class="metric-block">
+        <span class="metric-number">&lt; 3 min</span>
+        <span class="metric-caption">Acreditación media</span>
+      </div>
+      <div class="metric-divider"></div>
+      <div class="metric-block">
+        <span class="metric-number">100%</span>
+        <span class="metric-caption">Retiros garantizados</span>
+      </div>
+      <div class="metric-divider"></div>
+      <div class="metric-block">
+        <span class="metric-number">24/7</span>
+        <span class="metric-caption">Atención en línea</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .social-section {
+    padding: var(--space-16) 0 var(--space-20);
+  }
+
+  .section-title-wrap {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto var(--space-12);
+  }
+
+  .section-title-wrap h2 {
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-3);
+  }
+
+  .section-subtext {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-body);
+  }
+
+  .section-subtext strong {
+    color: var(--color-primary);
+  }
+
+  .chat-proofs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+  }
+
+  .chat-proof-card {
+    background-color: var(--color-bg-white);
+    border: 1.5px solid var(--color-border-subtle);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-user-header {
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .chat-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-accent-yellow);
+    color: #1A1300;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .chat-user-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-fullname {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-white);
+  }
+
+  .user-bank-ref {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-blue-light);
+  }
+
+  .verified-pill {
+    font-size: 10px;
+    font-weight: var(--font-weight-black);
+    background-color: #DCFCE7;
+    color: #15803D;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+  }
+
+  .chat-messages-body {
+    padding: var(--space-4);
+    background-color: #ECE5DD; /* Tono neutro tipo chat */
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    min-height: 250px;
+    justify-content: center;
+  }
+
+  .chat-bubble {
+    max-width: 88%;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    line-height: var(--leading-snug);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  }
+
+  .client-bubble {
+    align-self: flex-start;
+    background-color: #FFFFFF;
+    color: var(--color-text-dark);
+    border-top-left-radius: 0;
+  }
+
+  .zencash-bubble {
+    align-self: flex-end;
+    background-color: #D9FDD3;
+    color: #0F172A;
+    border-top-right-radius: 0;
+  }
+
+  .sender-name {
+    display: block;
+    font-size: 9px;
+    font-weight: var(--font-weight-black);
+    color: var(--color-primary);
+    margin-bottom: 2px;
+  }
+
+  .time-stamp {
+    display: block;
+    font-size: 9px;
+    color: var(--color-text-muted);
+    text-align: right;
+    margin-top: 2px;
+  }
+
+  /* Metrics Banner */
+  .metrics-banner {
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .metric-block {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .metric-number {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-black);
+    color: var(--color-accent-yellow);
+    line-height: var(--leading-none);
+  }
+
+  .metric-caption {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-blue-light);
+  }
+
+  .metric-divider {
+    width: 1px;
+    height: 36px;
+    background-color: var(--color-border-blue);
+  }
+
+  @media (max-width: 640px) {
+    .metrics-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .metric-divider {
+      display: none;
+    }
+  }
+
+  /* Channel Proof Callout */
+  .channel-proof-callout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    background-color: #F0F7FF;
+    border: 1.5px solid #BAE0FD;
+    border-radius: var(--radius-xl);
+    padding: var(--space-4) var(--space-6);
+    margin-bottom: var(--space-12);
+  }
+
+  .channel-callout-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .tg-circle-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background-color: #229ED9;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(34, 158, 217, 0.3);
+  }
+
+  .channel-callout-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .channel-callout-title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-dark);
+  }
+
+  .channel-callout-desc {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-body);
+  }
+
+  .channel-callout-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background-color: #229ED9;
+    color: #FFFFFF;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-black);
+    letter-spacing: 0.04em;
+    padding: 10px 18px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+    box-shadow: 0 4px 12px rgba(34, 158, 217, 0.3);
+  }
+
+  .channel-callout-btn:hover {
+    background-color: #1B8ABF;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    .channel-proof-callout {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-4);
+      padding: var(--space-4);
+    }
+    .channel-callout-btn {
+      justify-content: center;
+    }
+  }
+</style>

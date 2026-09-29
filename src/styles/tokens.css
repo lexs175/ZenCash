@@ -1,0 +1,329 @@
+/* ==========================================================================
+   DESIGN TOKENS - ESTILO NOCNOC (COLOR BLOCKING VIBRANTE, CERO IA SLOP)
+   Colores: Azul Cobalto Real (#0052FF), Blanco Puro (#FFFFFF), Amarillo (#FFB800)
+   Regla: Cero emojis, cero manchas de luz difusas, cero badges repetitivos.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
+
+:root {
+  /* --- PALETA OFICIAL ESTILO NOCNOC & 1XBET --- */
+  --color-primary: #0052FF;
+  /* Azul Cobalto Vibrante (Nocnoc Blue) */
+  --color-primary-dark: #003ECC;
+  /* Azul profundo para hover/bordes */
+  --color-primary-hover: #0047E0;
+  /* Azul interactivo para logos/enlaces */
+  --color-primary-light: #EEF4FF;
+  /* Fondo azul suave para tarjetas */
+  --color-accent-yellow: #FFB800;
+  /* Amarillo vibrante acento (Nocnoc Tag) */
+  --color-accent-cyan: #00C2FF;
+  /* Cian eléctrico para resaltar palabras */
+
+  --color-whatsapp: #25D366;
+  /* Verde WhatsApp oficial */
+  --color-whatsapp-hover: #1EBE5D;
+  --color-cta-green: #00C853;
+  /* Verde CTA principal de alta conversión */
+  --color-cta-green-hover: #00B348;
+  --color-telegram: #229ED9;
+  /* Azul Telegram oficial */
+  --color-telegram-hover: #1B8ABF;
+  --color-success: #00C853;
+  /* Verde éxito/aprobación */
+  --color-accent-green: #00C853;
+  /* Alias para estados activos */
+
+  /* Textos */
+  --color-text-dark: #0A0F1D;
+  /* Texto principal sobre blanco */
+  --color-text-body: #475569;
+  /* Texto secundario sobre blanco */
+  --color-text-muted: #64748B;
+  /* Texto atenuado */
+  --color-text-white: #FFFFFF;
+  /* Texto sobre azul */
+  --color-text-blue-light: #D6E4FF;
+  /* Texto secundario sobre azul */
+
+  /* Superficies */
+  --color-bg-white: #FFFFFF;
+  --color-bg-light: #F8FAFC;
+  --color-bg-blue: #0052FF;
+  --color-bg-blue-dark: #0036B3;
+  --color-border-subtle: #E2E8F0;
+  --color-border-light: #EAF0F7;
+  --color-border-blue: rgba(255, 255, 255, 0.2);
+
+  /* --- TIPOGRAFÍA (Definida una sola vez) --- */
+  --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --font-size-xs: 0.8125rem;
+  /* 13px */
+  --font-size-sm: 0.9375rem;
+  /* 15px */
+  --font-size-base: 1rem;
+  /* 16px */
+  --font-size-md: 1.0625rem;
+  /* 17px */
+  --font-size-lg: 1.25rem;
+  /* 20px */
+  --font-size-xl: 1.5rem;
+  /* 24px */
+  --font-size-2xl: 2rem;
+  /* 32px */
+  --font-size-3xl: 2.75rem;
+  /* 44px */
+  --font-size-4xl: 3.75rem;
+  /* 60px */
+
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  --leading-tight: 1.08;
+  --leading-snug: 1.25;
+  --leading-normal: 1.55;
+  --leading-none: 1;
+
+  /* --- ESPACIADOS --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* --- GEOMETRÍA & RADIOS (Estilo nocnoc) --- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
+  --radius-arch: 100px 100px 24px 24px;
+  /* Forma de arco romano característica de nocnoc */
+  --radius-full: 9999px;
+
+  /* --- SOMBRAS FÍSICAS SUAVES --- */
+  --shadow-card: 0 4px 20px rgba(0, 40, 150, 0.06);
+  --shadow-sm: 0 2px 10px rgba(0, 40, 150, 0.08);
+  --shadow-card-hover: 0 12px 30px rgba(0, 40, 150, 0.12);
+  --shadow-elevated: 0 20px 40px rgba(0, 20, 80, 0.15);
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1440px;
+  --max-width-desktop: 1920px;
+}
+
+/* ==========================================================================
+   RESET & ESTILOS BASE SEMÁNTICOS
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-white);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
+}
+
+/* Tipografía de alto impacto estilo nocnoc */
+h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-black);
+  line-height: var(--leading-tight);
+  letter-spacing: 0;
+  color: var(--color-text-white);
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--leading-tight);
+  letter-spacing: 0;
+  color: var(--color-text-dark);
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+  color: var(--color-text-dark);
+}
+
+p {
+  font-size: var(--font-size-md);
+  line-height: var(--leading-normal);
+  color: var(--color-text-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  display: block;
+}
+
+/* ==========================================================================
+   BLOQUES Y COMPONENTES GLOBALES
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+/* Bloques de color sólido estilo nocnoc */
+.block-blue {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+}
+
+.block-blue h2,
+.block-blue h3 {
+  color: var(--color-text-white);
+}
+
+.block-blue p {
+  color: var(--color-text-blue-light);
+}
+
+.block-white {
+  background-color: var(--color-bg-white);
+  color: var(--color-text-dark);
+}
+
+.block-light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+}
+
+/* Botón WhatsApp de Alta Conversión */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background-color: var(--color-whatsapp);
+  color: var(--color-text-white);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-extrabold);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  letter-spacing: -0.01em;
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--color-whatsapp-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+/* Botón Blanco Nocnoc */
+.btn-nocnoc-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background-color: var(--color-bg-white);
+  color: var(--color-primary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  padding: var(--space-4) var(--space-7);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.btn-nocnoc-white:hover {
+  transform: translateY(-2px);
+  background-color: #F0F5FF;
+}
+
+/* Etiqueta / Tag Amarilla de Apertura (Inspirada en la puertita dorada de nocnoc) */
+.tag-open-door {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: var(--color-accent-yellow);
+  color: #1A1300;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-black);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+}

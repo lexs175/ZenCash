@@ -1,0 +1,227 @@
+---
+// PaymentMethods.astro - Métodos de pago locales con tarjetas en forma de arco estilo nocnoc
+import Button from './Button.astro';
+
+const methods = [
+  { name: 'Yape Bolivia', logo: '/yape-logo.svg', type: 'Billetera BCP' },
+  { name: 'Altoke', logo: '/altoke-logo.png', type: 'Billetera BancoSol' },
+  { name: 'Takenos', logo: '/takenos-logo.png', type: 'Billetera digital' },
+  { name: 'AISA', logo: '/aisa-logo.jpeg', type: 'Pagos digitales' },
+  { name: 'BNB', logo: '/bnb-logo.svg', type: 'Banco Nacional de Bolivia' },
+  { name: 'Banco Unión', logo: '/banco-union-seeklogo.png', type: 'El Banco de los bolivianos' },
+  { name: 'BMSC', logo: '/bmsc-logo.svg', type: 'Banco Mercantil Santa Cruz' },
+  { name: 'Banco BISA', logo: '/bisa-logo.svg', type: 'Banca Digital BISA' },
+  { name: 'Banco FIE', logo: '/banco-fie-seeklogo.svg', type: 'Transferencia FIE' },
+  { name: 'Tigo Money', logo: '/tigo-logo.svg', type: 'Billetera Digital' },
+  { name: 'Binance Pay', logo: '/binance-logo.svg', type: 'USDT / Cripto' },
+];
+---
+<section class="methods-section block-white" id="metodos-pago">
+  <div class="container">
+    <div class="section-title-wrap">
+      <h2>Elige cómo quieres pagar</h2>
+      <p class="section-subtext">
+        Aceptamos bancos, billeteras y USDT para recargar tu saldo sin vueltas.
+      </p>
+    </div>
+
+    <!-- Rejilla con tarjetas de arco estilo nocnoc -->
+    <div class="arch-cards-grid">
+      {methods.map((m) => (
+        <div class="arch-card">
+          <div class="arch-header">
+            <img src={m.logo} alt={m.name} class="arch-logo" loading="lazy" />
+          </div>
+          <div class="arch-body">
+            <span class="arch-name">{m.name}</span>
+            <span class="arch-type">{m.type}</span>
+            <span class="arch-pill">Inmediato</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Tira de confianza simple -->
+    <div class="all-banks-ribbon">
+      <div class="ribbon-text">
+        <strong>¿No ves tu método?</strong> Escríbenos y lo revisamos al momento.
+      </div>
+      <Button 
+        href="https://wa.me/59176996388?text=Hola%20Zencash,%20deseo%20consultar%20por%20mi%20banco%20para%20recargar" 
+        variant="secondary" 
+        on="light" 
+        size="sm"
+      >
+        Consultar al cajero
+      </Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .methods-section {
+    padding: var(--space-12) 0 var(--space-16);
+  }
+
+  .section-title-wrap {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto var(--space-10);
+  }
+
+  .section-title-wrap h2 {
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-3);
+  }
+
+  .section-subtext {
+    font-size: var(--font-size-md);
+    color: var(--color-text-body);
+  }
+
+  .section-subtext strong {
+    color: var(--color-primary);
+  }
+
+  /* Grid con tarjetas en forma de arco romano estilo nocnoc */
+  .arch-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .arch-card {
+    background-color: var(--color-bg-white);
+    border: 1.5px solid var(--color-border-subtle);
+    border-radius: var(--radius-arch); /* Arco superior icónico */
+    padding: var(--space-5) var(--space-3) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .arch-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .arch-header {
+    width: 100%;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-3);
+    overflow: hidden;
+  }
+
+  .arch-logo {
+    height: 36px;
+    width: auto;
+    max-width: 132px;
+    object-fit: contain;
+  }
+
+  .arch-card:nth-child(4) .arch-logo {
+    height: 30px;
+    max-width: 138px;
+  }
+
+  .arch-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .arch-name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-text-dark);
+  }
+
+  .arch-type {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .arch-pill {
+    margin-top: var(--space-2);
+    font-size: 11px;
+    font-weight: var(--font-weight-black);
+    color: var(--color-primary);
+    background-color: var(--color-primary-light);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* Ribbon */
+  .all-banks-ribbon {
+    background-color: var(--color-primary-light);
+    border: 1.5px solid #C7D9FE;
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .ribbon-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-dark);
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .ribbon-text strong {
+    color: var(--color-primary);
+  }
+
+  .ribbon-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-full);
+    transition: background-color var(--transition-fast);
+  }
+
+  .ribbon-btn:hover {
+    background-color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 600px) {
+    .arch-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+    }
+    .arch-card {
+      padding: var(--space-4) var(--space-2) var(--space-3);
+    }
+    .arch-logo {
+      height: 30px;
+      max-width: 104px;
+    }
+
+    .arch-card:nth-child(4) .arch-logo {
+      height: 24px;
+      max-width: 108px;
+    }
+    .arch-name {
+      font-size: var(--font-size-sm);
+    }
+  }
+</style>
