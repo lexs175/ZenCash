@@ -10,6 +10,11 @@ const examples = [
     market: 'G1 gana España',
     odds: '1.80',
     return: '180 Bs.',
+    options: [
+      { label: 'G1', detail: 'España', odd: '1.80', selected: true },
+      { label: 'X', detail: 'Empate', odd: '3.40', selected: false },
+      { label: 'G2', detail: 'Croacia', odd: '4.10', selected: false },
+    ],
     win: 'España gana el partido.',
     lose: 'Empatan o gana Croacia.',
     result: 'Si España gana 2-1, tu jugada se cumple.',
@@ -23,6 +28,10 @@ const examples = [
     market: 'Más de 2.5 goles',
     odds: '2.02',
     return: '202 Bs.',
+    options: [
+      { label: 'Menos 2.5', detail: '0 a 2 goles', odd: '1.72', selected: false },
+      { label: 'Más 2.5', detail: '3+ goles', odd: '2.02', selected: true },
+    ],
     win: 'El partido termina con 3 goles o más.',
     lose: 'El partido termina con 0, 1 o 2 goles.',
     result: 'Si acaba 2-1, hubo 3 goles: gana Más 2.5.',
@@ -36,6 +45,10 @@ const examples = [
     market: 'España gana + Más 1.5 goles',
     odds: '2.65',
     return: '265 Bs.',
+    options: [
+      { label: 'G1', detail: 'España', odd: '1.80', selected: true },
+      { label: 'Más 1.5', detail: '2+ goles', odd: '1.47', selected: true },
+    ],
     win: 'España gana y el partido tiene 2 goles o más.',
     lose: 'Si falla una selección, pierde la combinada.',
     result: 'Si España gana 2-1, se cumplen ambas selecciones.',
@@ -84,8 +97,18 @@ const examples = [
 
           <h3>{item.title}</h3>
 
+          <div class="market-board" aria-label={`Opciones del mercado ${item.title}`}>
+            {item.options.map((option) => (
+              <div class={`market-option ${option.selected ? 'selected' : ''}`}>
+                <span>{option.label}</span>
+                <small>{option.detail}</small>
+                <strong>{option.odd}</strong>
+              </div>
+            ))}
+          </div>
+
           <div class="market-pill">
-            <span>Mercado</span>
+            <span>Selección marcada</span>
             <strong>{item.market}</strong>
           </div>
 
@@ -258,6 +281,56 @@ const examples = [
 
   .example-card h3 {
     color: var(--color-text-dark);
+  }
+
+  .market-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+    gap: var(--space-2);
+  }
+
+  .market-option {
+    min-height: 78px;
+    background-color: #f1f5f9;
+    border: 1.5px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .market-option span {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+  }
+
+  .market-option small {
+    color: var(--color-text-body);
+    font-size: 11px;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .market-option strong {
+    color: var(--color-text-dark);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-black);
+    line-height: var(--leading-none);
+  }
+
+  .market-option.selected {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 18px rgba(0, 82, 255, 0.24);
+  }
+
+  .market-option.selected span,
+  .market-option.selected small,
+  .market-option.selected strong {
+    color: var(--color-text-white);
   }
 
   .market-pill {
